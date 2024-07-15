@@ -1,8 +1,11 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from format_date import format_date
 import format_date, reps_sets
 import beginners as bgn
 import intermediate as interm
 import advanced as adv
-
 
 def print_workout(date, upper, lower, core):
     print(date)
@@ -38,7 +41,7 @@ def main():
     print(f"Welcome to the workout of {date}")
     print("Are you more of a beginner (1), intermediate (2), or advanced (3)?")
     choice = 0
-    while True:
+    while choice not in [1, 2, 3]:
         try:
             choice = int(input())
             if choice not in [1, 2, 3]:
