@@ -3,8 +3,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+import random
 from format_date import format_date
 import low_intensity as low
+import med_intensity as med
+import high_intensity as high
 
 
 def print_workout(date, exercise, duration):
@@ -16,6 +19,21 @@ def low_intensity(date):
     exercise = low.low_intensity_cardio()
     duration = low.duration()
     print_workout(date, exercise, duration)
+
+
+def medium_intensity(date):
+    exercise = med.medium_intensity_cardio()
+    duration = med.duration()
+    print_workout(date, exercise, duration)
+
+
+def high_intensity(date):
+    workout = high.circuit_training()
+    num_rounds = random.choice([3,4,5])
+    print(date)
+    for exercises in workout:
+        print(exercises)
+    print(f"30 seconds on, 10 second break for {num_rounds} rounds")
 
 
 def main():
@@ -43,6 +61,10 @@ def main():
 
     if choice == 1:
         low_intensity(date)
+    elif choice == 2:
+        medium_intensity(date)
+    elif choice == 3:
+        high_intensity(date)
         
 
 
