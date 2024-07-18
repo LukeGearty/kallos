@@ -28,13 +28,17 @@ def medium_intensity(date):
 
 
 def high_intensity(date):
-    workout = high.circuit_training()
+    choice = random.choice([1, 2])
     num_rounds = random.choice([3,4,5])
-    print(date)
-    for exercises in workout:
-        print(exercises)
-    print(f"30 seconds on, 10 second break for {num_rounds} rounds")
-
+    if choice == 1:
+        workout = high.circuit_training()
+        print(date)
+        for exercises in workout:
+            print(exercises)
+        print(f"30 seconds on, 10 second break for {num_rounds} rounds")
+    else:
+        print(date)
+        print(f"30 second sprints for {num_rounds} rounds")
 
 def main():
     date = format_date()
