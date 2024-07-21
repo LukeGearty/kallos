@@ -8,8 +8,15 @@ import challenging_stretch as chln
 
 
 def gentle_stretching():
+    stretches = []
     for i in range(1, 4):
-        print(inflx.gentle_stretch())
+        current_stretch = inflx.gentle_stretch()
+        while current_stretch in stretches:
+            current_stretch = inflx.gentle_stretch()
+        stretches.append(current_stretch)
+    
+    for stretch in stretches:
+        print(stretch)
     print("Hold each pose for 30 seconds")
 
 
