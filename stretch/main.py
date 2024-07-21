@@ -4,12 +4,18 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from format_date import format_date
 import inflexbile as inflx
+import challenging_stretch as chln
 
 
 def gentle_stretching():
     for i in range(1, 4):
         print(inflx.gentle_stretch())
     print("Hold each pose for 30 seconds")
+
+
+def challenging():
+    for i in range(1, 4):
+        print(chln.intermediate_stretches())
 
 
 def main():
@@ -33,6 +39,8 @@ def main():
     
     if choice == 1:
         gentle_stretching()
+    elif choice == 2:
+        challenging()
 
 
 if __name__ == "__main__":
