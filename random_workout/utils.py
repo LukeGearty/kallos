@@ -34,34 +34,29 @@ def print_stretches(stretches: list):
     print("Hold each pose for 30 seconds")
 
 
-def gentle_stretching():
+def generate_stretches(stretch_function, count=3):
     stretches = []
-    for i in range(1, 4):
-        current_stretch = gentle_stretch()
+    while len(stretches) < count:
+        current_stretch = stretch_function()
         while current_stretch in stretches:
-            current_stretch = gentle_stretch()
+            current_stretch = stretch_function()
         stretches.append(current_stretch)
+    return stretches
+
+
+def gentle_stretching():
+    stretches = generate_stretches(gentle_stretch)
     print_stretches(stretches)
 
 
 def challenging_stretching():
-    stretches = []
-    for i in range(1, 4):
-        current_stretch = intermediate_stretches()
-        while current_stretch in stretches:
-            current_stretch = intermediate_stretches()
-        stretches.append(current_stretch)
+    stretches = generate_stretches(intermediate_stretches)
     print_stretches(stretches)
 
 
 
 def advanced_stretching():
-    stretches = []
-    for i in range(1, 4):
-        current_stretch = advanced_stretch()
-        while current_stretch in stretches:
-            current_stretch = advanced_stretch()
-        stretches.append(current_stretch)
+    stretches = generate_stretches(advanced_stretch)
     print_stretches(stretches)
 
 
