@@ -1,10 +1,9 @@
 import sys
 import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from format_date import format_date
-import inflexbile as inflx
-import challenging_stretch as chln
+from stretch_packages import inflexbile as inflx, challenging_stretch as chln
 
 
 def gentle_stretching():
@@ -31,7 +30,7 @@ def challenging():
     print("Hold each pose for 30 to 60 seconds")
 
 
-def main():
+def choice():
     date = format_date()
     print(f"Welcome to the stretching session of {date}")
     print("Do you want this stretching to be (1) Gentle, (2) Challenging, (3) Intense?")
@@ -54,7 +53,3 @@ def main():
         gentle_stretching()
     elif choice == 2:
         challenging()
-
-
-if __name__ == "__main__":
-    main()

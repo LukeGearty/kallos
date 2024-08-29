@@ -1,13 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from format_date import format_date
-import reps_sets
-import beginners as bgn
-import intermediate as interm
-import advanced as adv
-
+from strength_packages import reps_sets, beginners as bgn, intermediate as interm, advanced as adv
 
 def print_workout(date, upper, lower, core):
     print(date)
@@ -38,7 +34,7 @@ def advanced(date):
 
     
 
-def main():
+def choice():
     date = format_date()
     print(f"Welcome to the workout of {date}")
     print("Are you more of a beginner (1), intermediate (2), or advanced (3)?")
@@ -63,8 +59,3 @@ def main():
         intermediate(date)
     elif choice == 3:
         advanced(date)
-    
-
-
-if __name__ == "__main__":
-    main()

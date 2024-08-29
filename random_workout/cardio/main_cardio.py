@@ -1,13 +1,11 @@
 import sys
 import os
-
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import random
 from format_date import format_date
-import low_intensity as low
-import med_intensity as med
-import high_intensity as high
+from cardio_packages import low_intensity as low, med_intensity as med, high_intensity as high
 
 
 def print_workout(date, exercise, duration):
@@ -40,7 +38,7 @@ def high_intensity(date):
         print(date)
         print(f"30 second sprints for {num_rounds} rounds")
 
-def main():
+def choice():
     date = format_date()
     choice = 0
     print(f"Welcome to the cardio workout of {date}")
@@ -69,8 +67,3 @@ def main():
         medium_intensity(date)
     elif choice == 3:
         high_intensity(date)
-        
-
-
-if __name__ == "__main__":
-    main()
