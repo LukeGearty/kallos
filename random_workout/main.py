@@ -13,9 +13,9 @@ def main():
     choice = int(input())
 
     if choice == 1:
-        main_cardio.choice()
-    elif choice == 2:
         main_strength.choice()
+    elif choice == 2:
+        main_cardio.choice()
     elif choice == 3:
         main_stretch.choice()
 
