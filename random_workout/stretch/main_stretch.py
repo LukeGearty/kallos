@@ -3,8 +3,14 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from format_date import format_date
-from stretch_packages import inflexbile as inflx, challenging_stretch as chln
+from stretch_packages import inflexbile as inflx, challenging_stretch as chln, advanced_stretch as advstr
 
+
+def print_stretches(stretches):
+    for stretch in stretches:
+        print(stretch)
+    print("Hold each pose for 30 seconds")
+    
 
 def gentle_stretching():
     stretches = []
@@ -13,9 +19,7 @@ def gentle_stretching():
         while current_stretch in stretches:
             current_stretch = inflx.gentle_stretch()
         stretches.append(current_stretch)
-    for stretch in stretches:
-        print(stretch)
-    print("Hold each pose for 30 seconds")
+    print_stretches(stretches)
 
 
 def challenging():
@@ -25,10 +29,17 @@ def challenging():
         while current_stretch in stretches:
             current_stretch = chln.intermediate_stretches()
         stretches.append(current_stretch)
-    for stretch in stretches:
-        print(stretch)
-    print("Hold each pose for 30 to 60 seconds")
+    print_stretches(stretches)
 
+
+def advanced():
+    stretches = []
+    for i in range(1, 4):
+        current_stretch = advstr.advanced_stretch()
+        while current_stretch in stretches:
+            current_stretch = advstr.advanced_stretch()
+        stretches.append(current_stretch)
+    print_stretches(stretches)
 
 def choice():
     date = format_date()
@@ -53,5 +64,6 @@ def choice():
         gentle_stretching()
     elif choice == 2:
         challenging()
-    #elif choice == 3:
+    elif choice == 3:
+        advanced()
     

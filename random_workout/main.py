@@ -6,9 +6,18 @@ from strength import main_strength
 from stretch import main_stretch
 
 def main():
-    # main_cardio.choice()
-    #main_strength.choice()
-    main_stretch.choice()
+    print("What are you training today?")
+    print("1. Strength")
+    print("2. Cardio")
+    print("3. Flexibility")
+    choice = int(input())
+
+    if choice == 1:
+        main_cardio.choice()
+    elif choice == 2:
+        main_strength.choice()
+    elif choice == 3:
+        main_stretch.choice()
 
 
 if __name__=="__main__":
