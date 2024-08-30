@@ -1,5 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Stretch Workout of 
+    Stretch Workout of {{ formatted_date }}
 {% endblock %}
+
+
+{%block content %}
+    <h1>{{ formatted_date }}</h1>
+    <p>What kind of workout are you looking for?<p>
+
+    {% endblock %}
