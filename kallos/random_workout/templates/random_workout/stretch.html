@@ -7,6 +7,13 @@
 
 {%block content %}
     <h1>{{ formatted_date }}</h1>
-    <p>What kind of workout are you looking for?<p>
-
+        <form method="post">
+            {% csrf_token %}
+            <label for="workout_type">What kind of stretching workout are you looking for?</label>
+            <select id="workout_type" name="workout_type">
+                <option value="gentle">Gentle</option>
+                <option value="intermediate">Challenging</option>
+                <option value="intense">Intense</option>
+            </select>
+            <button type="submit">Submit</button>
     {% endblock %}

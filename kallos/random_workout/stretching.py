@@ -16,6 +16,7 @@ def advanced_stretch():
     return random.choice(stretches)
 
 
+
 def generate_stretch_workout(stretch_function):
     stretches = []
     for i in range(3):
@@ -26,3 +27,11 @@ def generate_stretch_workout(stretch_function):
     return stretches
 
 
+def stretch_choice(choice: int):
+    if choice == 1:
+        return generate_stretch_workout(gentle_stretch)
+    elif choice == 2:
+        return generate_stretch_workout(intermediate_stretches)
+    else:
+        return generate_stretch_workout(advanced_stretch)
+    
