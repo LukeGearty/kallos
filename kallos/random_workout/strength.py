@@ -1,13 +1,11 @@
 import random
 #reps and set calculator
 
+
 def reps_set_calculator():
-    return random.randint(3, 5)
-
-
-def rep_calculator():
-    potential_reps = [8, 10, 12, 15]
-    return random.choice(potential_reps)
+    potential_reps = random.choice([8, 10, 12, 15])
+    potential_sets = random.randint(3, 5)
+    return str(potential_sets) + " x " + str(potential_reps)
 
 
 #beginner workouts
@@ -37,7 +35,7 @@ def intermediate_lower_body():
     return random.choice(lower_exercise_list)
 
 
-def intermediate_core():
+def intermediate_core_work():
     core_exercise_list = ['Leg Raises']
     return random.choice(core_exercise_list)
 
@@ -57,3 +55,21 @@ def advanced_lower_body():
 def advanced_core_work():
     advanced_core_list = ['V Sits', 'Human Flag', 'Dragon Flag']
     return random.choice(advanced_core_list)
+
+
+def generate_workout(upper_body_function, lower_body_function, core_function):
+    workout = {
+        upper_body_function(): reps_set_calculator(),
+        lower_body_function(): reps_set_calculator(),
+        core_function(): reps_set_calculator()
+    }
+    return workout
+
+
+def strength_choice(choice: int):
+    if choice == 1:
+        return generate_workout(beginner_upper_body, beginner_lower_body, beginner_core_work)
+    elif choice == 2:
+        return generate_workout(intermediate_upper_body, intermediate_lower_body, intermediate_core_work)
+    else:
+        return generate_workout(advanced_upper_body, advanced_lower_body, advanced_core_work)

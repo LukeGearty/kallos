@@ -8,3 +8,12 @@ class StretchingWorkoutForm(forms.Form):
     ]
 
     workout_type = forms.ChoiceField(choices=WORKOUT_CHOICES, label="Choose Workout Type")
+
+class StrengthWorkoutForm(forms.Form):
+    WORKOUT_CHOICE = [
+        ('beginner', 'Beginner Workout'),
+        ('intermediate', 'Intermediate Workout'),
+        ('advanced', 'Advanced Workout')
+    ]
+
+    workout_type = forms.ChoiceField(choices=WORKOUT_CHOICE, label="Choose Workout Type")

@@ -5,6 +5,19 @@
 {% endblock %}
 {% block content %}
     <h1>{{ formatted_date }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="workout_type">What kind of stretching workout are you looking for?</label>
+        <select id="workout_type" name="workout_type">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+        <button type="submit">Submit</button>
+    
+    {% for exercise, reps_sets in workout_today.items %}
+        <p>{{ exercise }} {{ reps_sets }}</p>
+    {% endfor %}
 
 
 {% endblock %}

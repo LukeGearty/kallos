@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .utils import format_date
-from .forms import StretchingWorkoutForm
+from .forms import StretchingWorkoutForm, StrengthWorkoutForm
 from .stretching import stretch_choice
+from .strength import strength_choice
 
 # Create your views here.
 
@@ -39,7 +40,22 @@ def stretch_view(request):
 
 
 def strength_view(request):
+    if request.method == "POST":
+        form = StrengthWorkoutForm(request.POST)
+        if form.is_valid():
+            workout_type = form.cleaned_data['workout_type']
+            if workout_type == "beginner":
+                workout = strength_choice(1)
+            elif workout_type == "intermediate":
+                workout = strength_choice(2)
+            else:
+                workout = strength_choice(3)
 
-    return render(request, 'random_workout/strength.html', {
-        'formatted_date': date
-    })
+            return render(request, 'random_workout/strength.html', {
+                'formatted_date': date,
+                'workout_today': workout
+            })
+    else:
+        return render(request, 'random_workout/strength.html', {
+            'formatted_date': date
+        })
