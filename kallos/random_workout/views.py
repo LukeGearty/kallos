@@ -36,3 +36,10 @@ def stretch_view(request):
         return render(request, 'random_workout/stretch.html', {
             'formatted_date': date
         })
+
+
+def strength_view(request):
+
+    return render(request, 'random_workout/strength.html', {
+        'formatted_date': date
+    })
