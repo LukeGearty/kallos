@@ -15,12 +15,13 @@ def random_workout(request):
 def stretch_view(request):
 
     if request.method == 'POST':
+        after_message = "Hold each pose for 30 seconds"
         form = StretchingWorkoutForm(request.POST)
         if form.is_valid():
             workout_type = form.cleaned_data['workout_type']
             if workout_type == 'gentle':
                 workout = stretch_choice(1)
-            elif workout_type == 'intermediate':
+            elif workout_type == 'challenging':
                 workout = stretch_choice(2)
             else:
                 workout = stretch_choice(3)
@@ -28,7 +29,8 @@ def stretch_view(request):
             
             return render(request, 'random_workout/stretch.html', {
                 'formatted_date': date,
-                'workout_today': workout
+                'workout_today': workout,
+                'after_message': after_message,
             })
     else:
         return render(request, 'random_workout/stretch.html', {

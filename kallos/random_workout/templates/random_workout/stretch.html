@@ -12,8 +12,13 @@
             <label for="workout_type">What kind of stretching workout are you looking for?</label>
             <select id="workout_type" name="workout_type">
                 <option value="gentle">Gentle</option>
-                <option value="intermediate">Challenging</option>
+                <option value="challenging">Challenging</option>
                 <option value="intense">Intense</option>
             </select>
             <button type="submit">Submit</button>
+    
+        {% for stretch in workout_today %}
+            <p>{{ stretch }}</p>
+        {% endfor %}
+        <p>{{ after_message }}</p>
     {% endblock %}
