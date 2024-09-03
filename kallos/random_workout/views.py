@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .utils import format_date
-from .forms import StretchingWorkoutForm, StrengthWorkoutForm
+from .forms import StretchingWorkoutForm, StrengthWorkoutForm, CardioWorkoutForm
 from .stretching import stretch_choice
 from .strength import strength_choice
+from .cardio import cardio_choice
 
 # Create your views here.
 
@@ -14,7 +15,6 @@ def random_workout(request):
     })
 
 def stretch_view(request):
-
     if request.method == 'POST':
         after_message = "Hold each pose for 30 seconds"
         form = StretchingWorkoutForm(request.POST)
@@ -57,5 +57,28 @@ def strength_view(request):
             })
     else:
         return render(request, 'random_workout/strength.html', {
+            'formatted_date': date
+        })
+
+
+def cardio_view(request):
+    if request.method == "POST":
+        form = CardioWorkoutForm(request.POST)
+        if form.is_valid():
+            workout_type = form.cleaned_data['workout_type']
+            if workout_type == "light":
+                workout = cardio_choice(1)
+            elif workout_type == "medium":
+                workout = cardio_choice(2)
+            else:
+                workout = cardio_choice(3)
+            
+            return render(request, 'random_workout/cardio.html', {
+                'formatted_date': date,
+                'workout_today': workout
+            })
+    
+    else:
+        return render(request, 'random_workout/cardio.html', {
             'formatted_date': date
         })

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Strength Workout of {{ formatted_date }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ formatted_date }}</h1>
+            <form method="post">
+                {% csrf_token %}
+                <label for="workout_type">What kind of cardio workout are you looking for?</label>
+                <select id="workout_type" name="workout_type">
+                    <option value="light">Light Intensity</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High Intensity</option>
+                </select>
+                <button type="submit">Submit</button>
+        
+        {% for exercise in workout_today %}
+            <p>{{ exercise }}</p>
+        {% endfor %}
+
+{% endblock %}
