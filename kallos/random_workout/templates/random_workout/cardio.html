@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Strength Workout of {{ formatted_date }}
+    Cardio Workout of {{ formatted_date }}
 {% endblock %}
 
 {% block content %}
@@ -15,9 +15,9 @@
                     <option value="high">High Intensity</option>
                 </select>
                 <button type="submit">Submit</button>
+    
         
-        {% for exercise in workout_today %}
-            <p>{{ exercise }}</p>
-        {% endfor %}
+        
+        <p>{{ workout_today }}</p>
 
 {% endblock %}

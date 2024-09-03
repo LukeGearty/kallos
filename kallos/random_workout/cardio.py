@@ -20,7 +20,7 @@ def medium_duration():
     return random.choice(potential_durations)
 
 
-def high_intensity_training():
+def high_intensity_training(num_rounds):
     circuit_training = ['Jumping Jacks', 'High Knees', 'Burpees', 'Mountain Climbers', 'Squats', 'Push Ups', 'Russian Twists', 'Jump Squats', 'Lunges', 'Planks']
     first = random.choice(circuit_training)
     second = random.choice(circuit_training)
@@ -33,7 +33,7 @@ def high_intensity_training():
     while third == second or third == first:
         third = random.choice(circuit_training)
     
-    return [first, second, third]
+    return f"{first}, {second}, {third}, 30 seconds on, 10 seconds off, for {num_rounds} rounds"
 
 
 ##only for low and medium intensity
@@ -46,7 +46,7 @@ def generate_high_intensity():
     choice = random.choice([1, 2])
     num_rounds = random.choice([3,4,5])
     if choice == 1:
-        return high_intensity_training()
+        return high_intensity_training(num_rounds)
     else:
         return f"30 second sprints for {num_rounds} rounds"
 

@@ -72,6 +72,7 @@ def cardio_view(request):
                 workout = cardio_choice(2)
             else:
                 workout = cardio_choice(3)
+                
             
             return render(request, 'random_workout/cardio.html', {
                 'formatted_date': date,
